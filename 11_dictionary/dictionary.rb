@@ -13,8 +13,18 @@ class Dictionary
 		@dictionary.keys
 	end
 	def include?(keyval)
-		#true
-		nil
-		#@dictionary[keyval]
+		@dictionary[keyval]
+	end
+	def find(keyval)
+		@dictionary.select { |k,v| k.include?(keyval) == true}
+	end
+	def keywords
+		@dictionary.keys.sort
+	end
+	def printable
+		sentence =''
+
+		@dictionary.keys.sort.map{|x| sentence+= '['+x+'] '+@dictionary[x].inspect+"\n"}
+		sentence[0..-2]
 	end
 end
